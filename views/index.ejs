@@ -25,18 +25,25 @@
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="/scripts/app.js"></script>
 
     <!-- Page styles -->
     <link rel="stylesheet" href="/styles/main.css">
   </head>
-  <body>
+  <body ng-app="MEANSKApp">
     <header class="app-bar promote-layer">
       <div class="app-bar-container">
         <button class="menu"><img src="images/hamburger.svg" alt="Menu"></button>
-        <h1 class="logo">MEAN <strong>Starter Kit</strong></h1>
+        <a class="navbar-brand" href="#"><h1 class="logo">MEAN <strong>Starter Kit</strong></h1></a>
         <section class="app-bar-actions">
         <!-- Put App Bar Buttons Here -->
         <!-- e.g <button><i class="icon icon-star"></i></button> -->
+          <p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/register">Register</a></p>
+          <p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+          <p class="navbar-right navbar-text" ng-show="authenticated">Signed in as {{current_user}}</p>
         </section>
       </div>
     </header>
@@ -51,16 +58,19 @@
     </nav>
 
     <main>
-      <h1 id="hello">Hello!</h1>
-      <p>Welcome to <%= title %></p>
-
-      <h2 id="get-started">Get Started.</h2>
-      <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or check out the <a href="styleguide.html">Style Guide</a>.</p>
+      <nav class="navbar-fluid navbar-default navbar-fixed-top">
+				<div class="container">
+            <h1 id="hello">Hello!</h1>
+            <p>Welcome to <%= title %></p>
+				</div>
+			</nav>
+			<div class="col-md-offset-2 col-md-8">
+				<div ng-view>
+				</div>
+			</div>
     </main>
 
-    <!-- build:js scripts/main.min.js -->
-    <script src="/scripts/main.js"></script>
-    <!-- endbuild -->
+    <script src="/scripts/main.min.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
