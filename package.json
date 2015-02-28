@@ -41,6 +41,7 @@
     "gulp-uncss": "^0.4.5",
     "gulp-useref": "^1.0.1",
     "jshint-stylish": "^0.4.0",
+    "mongoose": "^3.8.24",
     "morgan": "~1.5.1",
     "opn": "^1.0.0",
     "passport": "^0.2.1",
