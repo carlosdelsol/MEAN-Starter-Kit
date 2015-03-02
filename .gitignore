@@ -13,3 +13,6 @@ dist
 
 #Temporary
 .tmp
+
+#WebStorm
+.idea
